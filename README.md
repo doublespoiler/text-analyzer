@@ -80,8 +80,16 @@ Describe omitOffensiveWords();
     omitOffensiveWords(words, text);
   Expected Output: " ";
 
-  Test: "it should print "we found a bad word" if it found a bad word, and "we didn't find a bad word" if it didn't. It will do this for each bad word in the list."
+    Test: "it should print the number of bad words"
   Code: 
     const words = ["zoinks", "biffaroni", "muppeteer", "loopdaloop"]
-    const text = "zoinks";
+    const text = "zoinks zoinks biffaroni muppeteer loser fuck";
     omitOffensiveWords(words, text);
+  Expected Result: "4"
+
+  Test: "remove the bad word from the input if it exists"
+  Code:
+    const badArray = ["zoinks", "biffaroni", "muppeteer", "loopdaloop"];
+    const text = "the quick brown zoinks muppeteers loser loopdaloop fuck."
+    omitOffensiveWords(badArray, text);
+  Expected Result: "the quick brown loser fuck."
