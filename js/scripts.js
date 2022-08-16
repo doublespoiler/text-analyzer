@@ -37,16 +37,19 @@ function omitOffensiveWords(badWords, text){
   console.log("finished");
 };
 
-function omitOffensiveWords2(badArray, inputText){
-  const inputArray = inputText.split(" ");
-  let wordCount = 0;
+function omitOffensiveWords(badArray, inputText){
+  let inputArray = inputText.split(" ");
+  // let wordCount = 0;
   badArray.forEach(function(element){
     const badWord = element;
     inputArray.forEach(function(element){
-      if (element === badWord){
-        wordCount++;
+      if (element.includes(badWord)){
+        // wordCount++;
+        const deleteCount = 1;
+        const wordIndex = inputArray.indexOf(element);
+        inputArray.splice(wordIndex, deleteCount);
       }
     });
   });
-  return wordCount;
+  return inputArray;
 }
